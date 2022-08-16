@@ -6,8 +6,6 @@ import TableRow from './TableRow';
 const Table = ({ data }) => {
   const [selected, setSelected] = useState([]);
 
-  console.log(data);
-
   return (
     <div>
       <table className='border rounded w-full text-left'>

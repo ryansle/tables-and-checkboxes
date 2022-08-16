@@ -1,3 +1,6 @@
+// Utilities
+import { capitalizeFirstLetter } from '../utils';
+
 const TableRow = ({ row }) => {
   // Rather than pass each field of row as a prop, let's just pass
   //  the entire row and destructure the object to make this cleaner
@@ -18,8 +21,14 @@ const TableRow = ({ row }) => {
       </td>
       <td>{name}</td>
       <td>{device}</td>
-      <td>{path}</td>
-      <td>{status}</td>
+      <td>
+        <div className='flex justify-between items-center'>
+          {path}
+          {/* draw green circle when status is set to available */}
+          {status === 'available' && <div className='w-3 h-3 bg-green-500 rounded-full mr-2' />}
+        </div>
+      </td>
+      <td>{capitalizeFirstLetter(status)}</td>
     </tr>
   );
 };
