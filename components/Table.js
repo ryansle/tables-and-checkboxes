@@ -7,6 +7,16 @@ import { BsDownload as Download } from 'react-icons/bs';
 const Table = ({ data }) => {
   const [selected, setSelected] = useState([]);
 
+  const toggleAllCheckboxes = () => {
+    // Compare how many things we have selected versus the total amount of data
+    //  This wouldn't work as well with a paginated table, but for 
+    //  the purposes of this tiny little table, it'll work just fine
+    const shouldBeChecked = selected.length < data.length;
+
+    if (shouldBeChecked) setSelected(data);
+    else setSelected([]);
+  }
+
   const toggleCheckbox = (row) => {
     const rowName = row.name;
 
@@ -20,13 +30,13 @@ const Table = ({ data }) => {
     }
   };
 
-  console.log(selected);
-
   return (
     <div>
       <div className='flex p-2 items-center'>
         <input
           type='checkbox'
+          checked={data.length === selected.length}
+          onChange={toggleAllCheckboxes}
         />
 
         <p className='ml-4'>
