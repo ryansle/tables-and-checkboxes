@@ -1,7 +1,7 @@
 // Utilities
 import { capitalizeFirstLetter } from '../utils';
 
-const TableRow = ({ row }) => {
+const TableRow = ({ row, isChecked, toggleCheckbox }) => {
   // Rather than pass each field of row as a prop, let's just pass
   //  the entire row and destructure the object to make this cleaner
   const {
@@ -17,6 +17,8 @@ const TableRow = ({ row }) => {
       <td className='p-2'>
         <input
           type='checkbox'
+          checked={isChecked}
+          onChange={toggleCheckbox}
         />
       </td>
       <td>{name}</td>
