@@ -12,7 +12,10 @@ const TableRow = ({ row, isChecked, toggleCheckbox }) => {
   } = row;
 
   return (
-    <tr className={`border ${isChecked ? 'bg-gray-300' : 'hover:bg-gray-100'}`}>
+    <tr
+      className={`border ${isChecked ? 'bg-gray-300' : 'hover:bg-gray-100'}`}
+      onClick={toggleCheckbox}
+    >
       {/* No idea why I can't apply the p-2 style to the <tr /> */}
       <td className='p-2'>
         <input
